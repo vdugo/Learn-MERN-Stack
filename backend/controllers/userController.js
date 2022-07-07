@@ -79,6 +79,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route GET /api/users/me
 // @access Public
 const getMe = asyncHandler(async (req, res) => {
+    // req.user is set in the auth middleware
     const { _id, name, email } = await User.findById(req.user.id)
 
     res.status(200).json({
